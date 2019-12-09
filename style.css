@@ -1,0 +1,217 @@
+/* Fenetre Modale */
+.modal{
+    position: fixed;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.8)    
+}
+
+.modal-wrapper{
+    width: 500px;
+    height: 500px;
+    margin : auto;
+    background-color: rgb(115, 143, 113);
+    border-radius: 25%;
+   }
+aside p {
+    padding-top: 65px;
+    font-size: 45px;
+}
+aside button {
+    margin-top: 100px;
+    width: 150px;
+    height: 50px;
+    font-family: "southpark";
+    font-size: 30px;
+}
+/* Autre */
+
+
+@font-face
+{
+    font-family: 'southpark';
+    src: url('southpark.ttf');
+}
+
+
+html { 
+    background: url('Img/indexwallpaper.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+body{
+    text-align: center;
+    
+    font-family: "southpark";
+   
+  
+}
+
+#bigContainer{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.levels img
+{
+    width: 150px;
+    height: 150px;
+}
+
+
+
+.levels img:hover
+{
+    width: 180px;
+    height: 180px;
+}
+
+.levels
+{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    height: 180px;
+}
+
+.divButtonPlay
+{
+    margin-top: 40px;
+    height: 60px;
+}
+
+.playButton
+{
+    width: 150px;
+    height: 75px;
+    font-family: "southpark";
+    font-size: 30px;
+   
+}
+
+
+.caracters
+{
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+#container img{
+    width: 120px;
+}
+
+.photoPlayer{
+    width: 28.5%;
+    padding-top: 10%;
+}
+
+#kim{
+    width: 50%;
+}
+
+#marine{
+    width: 50%;
+}
+
+.caracters{
+    width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+margin-top: 10%;
+}
+
+#player2index{
+    width: 250px;
+    height: auto;
+    border: black solid;
+    border-radius: 15%;
+    background-color: #92D7E6;
+}
+
+#player1index{
+    width: 250px;
+    height: auto;
+    border: black solid;
+    border-radius: 15%;
+    padding-top: 3.5%;
+    background-color: #92D7E6;
+}
+
+#container
+{
+    display: flex;
+    flex-direction: row;
+    width: 43%;
+    text-align: center;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding-top: 4%;
+    background-color: rgba(66, 126, 66, 0);
+}
+
+.imgDure{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    cursor:pointer; 
+}
+
+.imgFinales{ 
+    margin-top: 140px; 
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#kimikimi{
+
+    border: solid black;
+    border-radius: 20px;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+#penipeni{
+
+    border: solid black;
+    border-radius: 20px;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+#bothShit{
+    border: solid black;
+    border-radius: 20px;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.47);
+    }
+.dot {
+    position: absolute;
+}
+
+img{     
+    cursor: pointer;
+}

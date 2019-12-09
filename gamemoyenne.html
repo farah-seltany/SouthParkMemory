@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>South Park Memory</title>
+</head>
+<body>
+    <h1>PLAAAAAAAAAAAAAAAAY !</h1>
+
+    <div id="bigContainer">
+
+            <div class="photoPlayer">
+                 <h2> SCORE Joueur 1 : <span id="scoreJ1">0</span> </h2>
+                <img id="kim" src="Img/player1.png" alt="kim le fils de pute">
+            
+            </div>
+            
+                    <div id="container" style="width: 34%"></div>
+
+
+            <div class="photoPlayer">
+                <h2> SCORE Joueur 1 : <span id="scoreJ2">0</span> </h2>
+                <img id="marine" src="Img/player2.png" alt="kim mon amour">
+            
+            </div>
+            <aside id='modal1' class='modal' style="display: none">
+                    <div class='modal-wrapper'>
+                        <p id="playerName">Joueur 1, FIGHT ! </p>
+                        <button id="js-close-modal" onclick="closeModaleJ1()"> OK
+                        </button>
+                    </div>
+            
+            </aside>
+            
+    </div>
+    <div class="divButtonPlay"><button class="playButton"><a href="Index.html">RETURN HOME</a></button></div>
+
+    
+    
+    <script>
+        const backCard = ['Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+                        'Img/cardBack.png',
+        ];
+        const frontCards = [
+            'Img/card1.png',
+            'Img/card2.png',
+            'Img/card3.png',
+            'Img/card4.png',
+            'Img/card5.png',
+            'Img/card6.png',
+            'Img/card7.png',
+            'Img/card8.png',
+            'Img/card1.png',
+            'Img/card2.png',
+            'Img/card3.png',
+            'Img/card4.png',
+            'Img/card5.png',
+            'Img/card6.png',
+            'Img/card7.png',
+            'Img/card8.png',
+        ]
+
+        
+
+          shuffle(frontCards);
+
+
+        let showCard = document.getElementById('container');
+        let returnedCards = [];
+        let joueurEtat = true;
+        let evenFinded = 0;
+        let scoreJ1 = 0;
+        let scoreJ2 = 0;
+        let total = scoreJ1 + scoreJ2;
+
+        function fenetreModaleJ1(){
+            let modaleJ1 = document.getElementById('modal1');
+            if(joueurEtat === true)
+            {   
+                document.getElementById('playerName').innerHTML = `<p id="playerName">Joueur 1, </br></br> FIGHT ! </p>`;
+                modaleJ1.style.display="block";
+            } else{
+                document.getElementById('playerName').innerHTML = `<p id="playerName">Joueur 2, </br></br> FIGHT ! </p>`;
+                modaleJ1.style.display="block";
+            }
+            
+        }
+
+        function closeModaleJ1 (){
+         let modaleJ1Close = document.getElementById('modal1');
+         modaleJ1Close.style.display="none";
+        }
+
+        function myFunctionJ1() {
+             alert("Joueur 1, A toi de jouer !");
+            }
+        function myFunctionJ2() {
+            alert("Joueur 2, A toi de jouer !");
+        }
+
+        function shuffle(frontCards) 
+        {
+            for (let i = frontCards.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1)); 
+                [frontCards[i], frontCards[j]] = [frontCards[j], frontCards[i]];
+            }
+        }
+
+
+
+        fenetreModaleJ1()
+   
+        function onClickedCard(index)
+        {
+
+            let backElt = document.getElementById(`back-${index}`);
+            let frontElt = document.getElementById(`front-${index}`);
+            backElt.style.display = "none";
+            frontElt.style.display = "block";
+
+
+           if (returnedCards.length < 2)
+           {
+                returnedCards.push(frontCards[index]);
+           }
+
+            if (returnedCards.length === 2)
+            {
+                
+                if (returnedCards[0] === returnedCards[1])
+                {
+                    if (joueurEtat === true){
+                        let mySound1 = new Audio(`veryGood.mp3`);
+                        mySound1.play();
+                        scoreJ1 = scoreJ1 +1;
+                        returnedCards = [];
+                        evenFinded = evenFinded + 1;
+                        frontElt.style.display = "block";
+                        console.log(total);
+                    }
+                    else {
+
+                        let mySound1 = new Audio(`veryGood.mp3`);
+                        mySound1.play();
+                        
+                        scoreJ2 = scoreJ2 +1;
+                        returnedCards = [];
+                        evenFinded = evenFinded + 1;
+                        frontElt.style.display = "block";
+
+                    }
+                }
+                
+                    else 
+                    {   let mySound2 = new Audio('tryAgain.mp3');
+                         mySound2.play();
+                        setTimeout(test,750)
+                        function test(){
+                        backElt.style.display = "block";
+                        frontElt.style.display = "none";
+                    }
+
+
+                    for (let j = 0; j < frontCards.length; j++){
+
+                        if (returnedCards[0]==frontCards[j]){
+
+                            setTimeout(test3,750)
+                            function test3(){
+                                let test1 = document.getElementById(`front-${j}`);
+                                let test2 = document.getElementById(`back-${j}`);
+                                test1.style.display = "none";
+                                test2.style.display = "block";
+                                returnedCards = [];     
+                            }
+                        }
+
+                    }
+
+                    if (joueurEtat === true){
+                        joueurEtat = false;
+                        setTimeout(fenetreModaleJ1,500);
+                        setTimeout(closeModaleJ1,2000);
+                        console.log(joueurEtat);
+                    }
+                    
+                    else {
+                        joueurEtat = true;
+                        setTimeout(fenetreModaleJ1,500);
+                        setTimeout(closeModaleJ1,2000);
+                        console.log(joueurEtat);
+                    }
+                }
+            
+            }    
+
+            let scoreJ1Elt = document.getElementById('scoreJ1');
+            let scoreJ2Elt = document.getElementById('scoreJ2');           
+            scoreJ1Elt.innerHTML = `${scoreJ1}`;
+            scoreJ2Elt.innerHTML = `${scoreJ2}`;
+            console.log(scoreJ1);
+            console.log(frontCards[index]);
+            console.log(returnedCards);
+            
+            if(scoreJ1+scoreJ2 == 8)
+             {
+              if(scoreJ1 < scoreJ2)
+                {
+                  function RedirectionJ2(){
+                        document.location.href="j2.html"; 
+                    }
+                    RedirectionJ2();
+                }
+              else if (scoreJ1 > scoreJ2)
+                {
+                function RedirectionJ2(){
+                        document.location.href="j1.html"; 
+                    }
+                    RedirectionJ2();
+                } else
+                    {
+                        function Redirection(){
+                        document.location.href="matchnul.html"; 
+                    }
+                    Redirection();
+              }
+          }
+        
+           
+        }
+        
+       
+         
+       
+
+        for (i = 0; i < frontCards.length; i ++)
+        {
+            showCard.innerHTML += `<img id="front-${i}" src="${frontCards[i]}" style="display: none" class='imgDure'/>`;
+            showCard.innerHTML += `<img onclick = "setTimeout(onClickedCard(${i}), 3000)" id="back-${i}" src="${backCard[i]}" style="display: block" class='imgDure'/>`;
+
+        }
+    </script>
+</body>
+</html>
